@@ -6,26 +6,32 @@ import { BsInstagram, BsYoutube, BsFacebook } from "react-icons/bs"
 
 const Footer = () => {
   return (
+    <>
     <footer id="footer">
-      <div className="leftFooter">
-        <h4>DOWNLOAD OUR APP</h4>
-        <p>Download App for Android and IOS mobile phone</p>
+
+    <div className="leftFooter">
+        <h1>ARF MART BRAND</h1>
+        <p>High Quality is our first priority</p>
+
+        <p>Copyrights 2023 &copy; Team ARF</p>
         <img src={playStore} alt="playstore" />
         <img src={appStore} alt="Appstore" />
       </div>
+
       <section className="newsletter">
         <form action="">
           <div className="row d-flex justify-content-center">
             <div className="col-auto">
-              <p className="pt-2">
+              <p className="pt-2 mt-2">
                 <strong>Sign up for our newsletter</strong>
               </p>
             </div>
-            <div className="col-md-5 col-12">
-              <div className="form-outline form-white mb-4">
-                <input type="email" id="form5Example21" className="form-control" />
-                <label className="form-label" htmlFor="form5Example21">Email address</label>
-              </div>
+            <div className="col-md-5 col-12 mt-2">
+              
+                <input type="email" classname="inputmail"
+                placeholder="Email"/>
+                {/* <label>Email address</label> */}
+              
             </div>
             <div className="col-auto">
               <button type="submit" className="btn btn-outline-light mb-4">
@@ -36,12 +42,7 @@ const Footer = () => {
         </form>
       </section>
 
-      <div className="midFooter">
-        <h1>ARF MART BRAND</h1>
-        <p>High Quality is our first priority</p>
-
-        <p>Copyrights 2023 &copy; Team ARF</p>
-      </div>
+     
 
       <div className="links">
         <section className="">
@@ -74,7 +75,10 @@ const Footer = () => {
         <a href="/" className="social-icon"><BsYoutube /></a>
         <a href="/" className="social-icon"><BsFacebook /></a>
       </div>
+
     </footer>
+      
+    </>
   );
 };
 

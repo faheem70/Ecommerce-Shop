@@ -1,3 +1,7 @@
+*{
+  border: 2px solid red;
+}
+
 footer {
   margin-top: 10vmax;
   padding: 2vmax;
@@ -5,22 +9,24 @@ footer {
     color: #838b99;
   display: flex;
   align-items: center;
+  justify-content: space-around;
 }
 
 .leftFooter {
-  width: 20%;
+  /* width: 20%; */
   display: flex;
   flex-direction: column;
   align-items: center;
+  text-align: center;
 }
 
-.leftFooter>h4 {
+/* .leftFooter>h4 {
   font-family: "Roboto", sans-serif;
     font-size: 1.2vmax;
 
     margin-bottom: 0.5vmax;
   
-}
+} */
 
 .leftFooter>p {
   text-align: center;
@@ -30,26 +36,24 @@ footer {
 
 .leftFooter>img {
   width: 8vmax;
-  
   margin: 1vmax;
   cursor: pointer;
 }
 
-.midFooter {
+/* .leftFooter {
   flex-grow: 1;
   text-align: center;
-}
+} */
 
-.midFooter>h1 {
-  font-size: 3vmax;
-  
-    font-family: "Roboto", sans-serif;
+.leftFooter>h1 {
+  /* font-size: 200%; */
+  font-family: "Roboto", sans-serif;
   color: #838b99;
+  margin:auto;
   margin-bottom: 1vmax;
-  
 }
 
-.midFooter>p {
+/* .midFooter>p {
   max-width: 80%;
   
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
@@ -57,10 +61,10 @@ footer {
   
     margin: 0 auto;
   
-}
+} */
 
 .rightFooter {
-  width: 20%;
+  /* width: 20%; */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -70,24 +74,25 @@ footer {
 
 .rightFooter>a {
   text-decoration: none;
-  font-size: 1.2vmax;
+  font-size: 170%;
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
   color: white;
   transition: all 0.5s;
-  margin: 0.3vmax;
-
+  margin: 0.5vmax;
+  text-align:center;
     display: inline-block;
-  
     padding: 0.3vmax 1vmax;
     background-color: #838b99;
-    
-      border-radius: 50%;
+    display:flex;
+    justify-content:center;
+    align-items: center;
+      border-radius: 150%;
     
     }
     
     .rightFooter>a:hover {
       color: white;
-      background-color: #838b99;
+      background-color: #155cd6;
     
     }
     
@@ -179,12 +184,24 @@ footer {
   .links ul li::before {
     content: none;
   }
+
+  .newsletter input{
+    margin:0 10px;
+  }
   
+  input[type="email"]{
+    width: 80%;
+    padding:7px;
+    border-radius: 5px;
+    background: transparent;
+    border: 1px solid white;
+    
+  }
   
   
   
   /* Define a media query for screens with a maximum width of 767px (typical for mobile devices) */
-  @media screen and (max-width: 600px) {
+  /* @media screen and (max-width: 600px) {
   
   
     .footer {
@@ -230,6 +247,7 @@ footer {
   
     .form-control {
       text-align: center;
+      width:50%;
     }
   
     .form-label {
@@ -237,8 +255,8 @@ footer {
   
     }
   
-    .form-outline.form-white.mb-4>input {
-      width: 50%;
+    .custom{
+      width:50%;
     }
 
-}
+} */
