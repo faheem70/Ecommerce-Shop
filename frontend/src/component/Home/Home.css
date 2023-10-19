@@ -1,5 +1,5 @@
 * {
-  border: 2px solid red;
+  /* border: 2px solid red; */
 }
 
 .banner {
@@ -93,8 +93,7 @@
   padding-bottom: 0.5vmax;
   border: 1px solid rgba(0, 0, 0, 0.2);
   border-radius: 10px;
-
-  box-shadow: 0 0 5px rgba(195, 194, 194, 0.26);
+  box-shadow: 0 10px 20px rgba(19, 140, 124, 0.6);
   overflow: hidden;
   box-sizing: border-box;
 }
@@ -102,7 +101,6 @@
 .productCard > img {
   width: 100%;
   height: auto;
-
   max-height: 14vmax;
 }
 
@@ -301,6 +299,8 @@
 }
 
 /* Styles for mobile screens */
+
+
 @media (max-width: 767px) {
   .container-flex1 {
     display: flex;
@@ -399,12 +399,12 @@
   }
 
   .productCard {
-    width: 70%;
+    /* width: 50%; */
     /* Cards take full width on mobile */
     margin: auto;
     margin-bottom: 2vmax;
     /* Adjust margin for mobile */
-    padding: 3vmax;
+    /* padding: 3vmax; */
     /* Adjust padding for mobile */
   }
 
