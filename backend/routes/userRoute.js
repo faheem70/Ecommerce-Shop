@@ -14,6 +14,7 @@ const {
   deleteUser,
   loadCartItem,
   getCartItems,
+  confirmMail,
 } = require("../controllers/userController");
 const { isAuthenticatedUser, authorizeRoles } = require("../middleware/auth");
 
@@ -22,6 +23,7 @@ const router = express.Router();
 router.route("/register").post(registerUser);
 
 router.route("/login").post(loginUser);
+router.route('/confirm-email/:token').get(confirmMail);
 
 router.route("/password/forgot").post(forgotPassword);
 

@@ -5,7 +5,7 @@ const sendToken = require("../utils/jwtToken");
 const sendEmail = require("../utils/sendEmail");
 const crypto = require("crypto");
 const cloudinary = require("cloudinary");
-
+//const sendRegistrationEmail = require("../utils/sendEmail");
 // Register a User
 exports.registerUser = catchAsyncErrors(async (req, res, next) => {
   try {
@@ -46,6 +46,24 @@ exports.registerUser = catchAsyncErrors(async (req, res, next) => {
 
     const user = await User.create(userData);
 
+
+    const emailToken = user.generateEmailConfirmationToken();
+    // console.log(emailToken);
+
+    // Create a confirmation URL with a route in your application
+    const confirmationURL = `https://arf-backend.onrender.com/confirm-email/${emailToken}`;
+    user.emailConfirmationToken = emailToken;
+    // Compose the email content
+    await user.save();
+    //  console.log(user.emailConfirmationToken);
+    const subject = 'Confirm Your Registration';
+    const text = `Please click this link to confirm your registration: ${confirmationURL}`;
+    const html = `Please click this link to confirm your registration: <a href="${confirmationURL}">Confirm Email</a>`;
+
+    // Use your sendEmail function to send the email
+    const recipientEmail = user.email
+    await sendEmail.sendRegistrationEmail(recipientEmail, subject, text, html);
+
     sendToken(user, 201, res);
   } catch (error) {
     // Handle any errors that occur during registration
@@ -54,6 +72,32 @@ exports.registerUser = catchAsyncErrors(async (req, res, next) => {
   }
 });
 
+
+exports.confirmMail = catchAsyncErrors(async (req, res, next) => {
+  try {
+    const token = req.params.token;
+    //console.log("token", token);
+
+    if (!token) {
+      return res.status(400).json({ success: false, error: "Token is missing" });
+    }
+
+    const user = await User.findOne({ emailConfirmationToken: token });
+    // console.log(user);
+    if (!user) {
+      return res.status(404).json({ success: false, error: "Invalid confirmation token" });
+    }
+
+    user.confirmed = true;
+    user.emailConfirmationToken = undefined;
+    await user.save();
+
+    res.redirect('/login');
+  } catch (error) {
+    console.error(error);
+    return res.status(500).json({ success: false, error: "Internal Server Error" });
+  }
+});
 
 // Login User
 exports.loginUser = catchAsyncErrors(async (req, res, next) => {
@@ -69,6 +113,9 @@ exports.loginUser = catchAsyncErrors(async (req, res, next) => {
 
   if (!user) {
     return next(new ErrorHander("Invalid email or password", 401));
+  }
+  if (!user.confirmed) {
+    return next(new ErrorHander("Please confirm your email before logging in", 401));
   }
 
   const isPasswordMatched = await user.comparePassword(password);

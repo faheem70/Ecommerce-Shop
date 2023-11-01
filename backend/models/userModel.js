@@ -32,11 +32,15 @@ const userSchema = new mongoose.Schema({
       type: String,
 
     },
+
     url: {
       type: String,
 
     },
   },
+
+
+  confirmed: { type: Boolean, default: false },
   role: {
     type: String,
     default: "user",
@@ -45,7 +49,7 @@ const userSchema = new mongoose.Schema({
     type: Date,
     default: Date.now,
   },
-
+  emailConfirmationToken: String,
   resetPasswordToken: String,
   resetPasswordExpire: Date,
 
@@ -87,5 +91,12 @@ userSchema.methods.getResetPasswordToken = function () {
 
   return resetToken;
 };
+
+userSchema.methods.generateEmailConfirmationToken = function () {
+  const token = crypto.randomBytes(20).toString('hex'); // You may need to import the 'crypto' module
+  this.emailConfirmationToken = token;
+  return token;
+};
+
 
 module.exports = mongoose.model("User", userSchema);
