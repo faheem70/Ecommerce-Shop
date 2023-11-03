@@ -88,7 +88,14 @@ module.exports = function (app) {
       changeOrigin: true,
     })
   );
-
+  app.use(
+    '/api/v1/payment/cod',
+    createProxyMiddleware({
+      target: 'http://localhost:4000'
+      ,
+      changeOrigin: true,
+    })
+  );
   app.use(
     '/api/v1/order/new',
     createProxyMiddleware({

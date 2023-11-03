@@ -115,6 +115,43 @@ const Payment = ({ history }) => {
     }
   };
 
+  const handleCode = () => {
+    const order = {
+      shippingInfo,
+      orderItems: cartItems,
+      itemsPrice: orderInfo.subtotal,
+      taxPrice: orderInfo.tax,
+      shippingPrice: orderInfo.shippingCharges,
+      totalPrice: orderInfo.totalPrice,
+      paidAt: new Date(), // Set to the current date and time
+      paymentInfo: {
+        id: "COD", // You can use any identifier for COD payments
+        status: "Cash On Delivery",
+      },
+      user: user._id,
+
+    };
+
+    axios
+      .post("/api/v1/payment/cod", order)
+      .then((response) => {
+        if (response.data.success) {
+          history.push("/success");
+        } else {
+          // Handle your custom error message display here
+          // You can use state to manage the error message instead of direct DOM manipulation
+          console.error("Payment Failed: ", response.data.error);
+          alert.error("Payment Failed: " + response.data.error);
+        }
+      })
+      .catch((error) => {
+        // Handle your custom error message display here
+        // You can use state to manage the error message instead of direct DOM manipulation
+        console.error("Request Failed: ", error);
+        alert.error("Error", "An error occurred while processing your request.");
+      });
+  };
+
   useEffect(() => {
     if (error) {
       alert.error(error);
@@ -149,6 +186,7 @@ const Payment = ({ history }) => {
             className="paymentFormBtn"
           />
         </form>
+        <button onClick={handleCode} classname="cash">Cod</button>
       </div>
     </Fragment>
   );

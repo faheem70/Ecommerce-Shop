@@ -28,6 +28,7 @@ const NewProduct = ({ history }) => {
   const [imagesPreview, setImagesPreview] = useState([]);
 
   const categories = [
+    "Vegetables",
     "Electronics",
     "Appliances",
     "Toys",

@@ -55,7 +55,21 @@
   transition: all 0.5s;
   outline: none;
 }
+.cash {
+  border: none;
+  background-color: #000102;
+  color: white;
+  font: 300 0.9vmax "Roboto";
+  width: 100%;
+  padding: 0.8vmax;
+  cursor: pointer;
+  transition: all 0.5s;
+  outline: none;
+}
 
+.cash:hover {
+  background-color: rgb(136, 135, 135);
+}
 .paymentFormBtn:hover {
   background-color: rgb(136, 135, 135);
 }
@@ -87,4 +101,8 @@
     font: 300 4vw "Roboto";
     padding: 4vw;
   }
+    .cash {
+      font: 300 4vw "Roboto";
+      padding: 4vw;
+    }
 }

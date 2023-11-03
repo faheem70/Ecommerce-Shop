@@ -45,6 +45,7 @@ import NotFound from "./component/layout/Not Found/NotFound";
 import Chat from "./component/Home/Chat";
 import Navbar from "./component/layout/Header/Navbar";
 import CategoryProducts from "./component/Product/CategoryProducts";
+import ConfirmationPage from "./component/User/ConfirmationPage";
 
 function App() {
   const { isAuthenticated, user } = useSelector((state) => state.user);
@@ -113,6 +114,7 @@ function App() {
         <Route exact path="/password/reset/:token" component={ResetPassword} />
 
         <Route exact path="/login" component={LoginSignUp} />
+        <Route exact path="/confirm-email/:token" component={ConfirmationPage} />
 
         <Route exact path="/cart" component={Cart} />
 
