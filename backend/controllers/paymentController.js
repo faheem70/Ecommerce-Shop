@@ -36,7 +36,7 @@ exports.sendStripeApiKey = catchAsyncErrors(async (req, res, next) => {
 exports.processPaymentCod = catchAsyncErrors(async (req, res, next) => {
   try {
     const { shippingInfo, orderItems, itemsPrice, taxPrice, shippingPrice, totalPrice } = req.body;
-    //const userId = req.user ? req.user._id : null;
+    const userId = req.user ? req.user._id : null;
 
     const newOrder = new Order({
       shippingInfo,
@@ -49,7 +49,7 @@ exports.processPaymentCod = catchAsyncErrors(async (req, res, next) => {
         status: 'Cash On Delivery',
         id: 'COD-' + Date.now(),
       },
-
+      user: userId,
       paidAt: new Date(),
     });
 
