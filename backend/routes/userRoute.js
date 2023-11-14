@@ -42,7 +42,7 @@ router
   .route("/admin/users")
   .get(isAuthenticatedUser, authorizeRoles("admin"), getAllUser);
 
-router.patch('/updateUserId', isAuthenticatedUser, updateUserId);
+router.patch('/user/updateUserId', isAuthenticatedUser, updateUserId);
 
 router
   .route("/admin/user/:id")
