@@ -36,7 +36,9 @@ const userSchema = new mongoose.Schema({
     },
   },
 
-
+  userId: {
+    type: String
+  },
   confirmed: { type: Boolean, default: false },
   role: {
     type: String,

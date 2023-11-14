@@ -140,6 +140,25 @@ exports.logout = catchAsyncErrors(async (req, res, next) => {
   });
 });
 
+//Update User
+exports.updateUserId = async (req, res) => {
+  try {
+      const { userId } = req.body;
+
+      // Find the user by the current user ID (you might need to modify this based on your schema)
+      const user = await User.findByIdAndUpdate(req.user._id, { userId }, { new: true });
+
+      if (!user) {
+          return res.status(404).json({ error: 'User not found' });
+      }
+
+      res.status(200).json({ success: true, user });
+  } catch (error) {
+      console.error('Error updating userId:', error);
+      res.status(500).json({ error: 'Internal Server Error' });
+  }
+};
+
 // Forgot Password
 exports.forgotPassword = catchAsyncErrors(async (req, res, next) => {
   const user = await User.findOne({ email: req.body.email });
