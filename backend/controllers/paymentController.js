@@ -36,7 +36,7 @@ exports.sendStripeApiKey = catchAsyncErrors(async (req, res, next) => {
 exports.processPaymentCod = catchAsyncErrors(async (req, res, next) => {
   try {
     const { shippingInfo, orderItems, itemsPrice, taxPrice, shippingPrice, totalPrice } = req.body;
-    const userId = req.user._id;
+    const userId = req.user ? req.user._id : null;
     // Create a new order
     console.log(shippingInfo);
     const newOrder = new Order({
