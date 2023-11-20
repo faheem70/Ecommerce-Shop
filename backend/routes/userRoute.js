@@ -15,7 +15,6 @@ const {
   loadCartItem,
   getCartItems,
   confirmMail,
-  updateUserId,
 } = require("../controllers/userController");
 const { isAuthenticatedUser, authorizeRoles } = require("../middleware/auth");
 
@@ -42,7 +41,6 @@ router
   .route("/admin/users")
   .get(isAuthenticatedUser, authorizeRoles("admin"), getAllUser);
 
-router.patch('/user/updateUserId', isAuthenticatedUser, updateUserId);
 
 router
   .route("/admin/user/:id")
