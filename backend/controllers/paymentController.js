@@ -35,11 +35,13 @@ exports.sendStripeApiKey = catchAsyncErrors(async (req, res, next) => {
 
 exports.processPaymentCod = catchAsyncErrors(async (req, res, next) => {
   try {
+    console.log('Received COD payment request:', req.body);
+
     const { shippingInfo, orderItems, itemsPrice, taxPrice, shippingPrice, totalPrice } = req.body;
     const userId = req.user ? req.user._id : null;
-    // Create a new order
-    console.log(shippingInfo);
-    const newOrder = new Purchase({
+
+    // Create a new order with payment information
+    const newOrder = await Order.create({
       shippingInfo,
       orderItems,
       itemsPrice,
@@ -48,25 +50,18 @@ exports.processPaymentCod = catchAsyncErrors(async (req, res, next) => {
       totalPrice,
       paymentInfo: {
         status: 'Cash On Delivery',
-        id: 'COD-' + Date.now(), // Generate a unique identifier for COD payments
+        id: 'COD-' + Date.now(),
       },
-      user: userId, // Assuming you have user information in the request
+      user: userId,
       paidAt: new Date(),
     });
 
-    // Save the order to the database
-    await newOrder.save();
-
-
-    // You can also handle other order-related operations here (e.g., sending confirmation emails, etc.).
+    console.log('Order saved successfully:', newOrder);
 
     // Respond with a success message
-    res.status(200).json({ success: true, message: 'Order placed successfully.' });
+    res.status(200).json({ success: true, message: 'Order placed successfully.', order: newOrder });
   } catch (error) {
-    // Log the error for debugging
     console.error('Error processing COD payment:', error);
-
-    // Handle errors and send an error response
     res.status(500).json({ success: false, error: 'Failed to place Cash on Delivery order.' });
   }
 });
