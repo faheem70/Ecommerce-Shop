@@ -21,6 +21,7 @@ const isAuthenticatedOrOtpLogin = (req, res, next) => {
     next();
   } else {
     // If not authenticated, return an error or redirect to a login page
+    console.log("error");
     res.status(401).send('Unauthorized');
   }
 };
@@ -29,7 +30,7 @@ router.route("/order/new").post(isAuthenticatedUser, newOrder);
 
 router.route("/order/:id").get(isAuthenticatedUser, getSingleOrder);
 
-router.route("/orders/me").get(isAuthenticatedOrOtpLogin, myOrders);
+router.route("/orders/me").get(isAuthenticatedUser, myOrders);
 
 router
   .route("/admin/orders")
