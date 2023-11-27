@@ -39,7 +39,7 @@ exports.processPaymentCod = catchAsyncErrors(async (req, res, next) => {
     const userId = req.user ? req.user._id : null;
     // Create a new order
     console.log(shippingInfo);
-    const newOrder = new Order({
+    const newOrder = new Purchase({
       shippingInfo,
       orderItems,
       itemsPrice,
@@ -56,7 +56,7 @@ exports.processPaymentCod = catchAsyncErrors(async (req, res, next) => {
 
     // Save the order to the database
     await newOrder.save();
-    console.log(newOrder);
+
 
     // You can also handle other order-related operations here (e.g., sending confirmation emails, etc.).
 
