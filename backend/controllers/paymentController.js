@@ -35,14 +35,7 @@ exports.sendStripeApiKey = catchAsyncErrors(async (req, res, next) => {
 
 exports.processPaymentCod = catchAsyncErrors(async (req, res, next) => {
   const { amount, productId } = req.body;
-
-  // Create a payment intent
-
-
-  // Assuming req.user contains information about the logged-in user
   const userId = req.user._id;
-
-  // Store the purchase information
   await Purchase.create({
     user: userId,
     product: productId,
