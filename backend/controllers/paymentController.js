@@ -34,11 +34,39 @@ exports.sendStripeApiKey = catchAsyncErrors(async (req, res, next) => {
 });
 
 exports.processPaymentCod = catchAsyncErrors(async (req, res, next) => {
-  const { amount, productId } = req.body;
-  const userId = req.user._id;
-  await Purchase.create({
-    user: userId,
-    product: productId,
-    amount,
-  });
+  try {
+    const { shippingInfo, orderItems, itemsPrice, taxPrice, shippingPrice, totalPrice } = req.body;
+    const userId = req.user ? req.user._id : null;
+
+    // Create a new order with payment information
+    const newOrder = await Order.create({
+      shippingInfo,
+      orderItems,
+      itemsPrice,
+      taxPrice,
+      shippingPrice,
+      totalPrice,
+      paymentInfo: {
+        status: 'Cash On Delivery',
+        id: 'COD-' + Date.now(),
+      },
+      user: userId,
+      paidAt: new Date(),
+    });
+
+    // Store the purchase information
+    await Purchase.create({
+      user: userId,
+      product: orderItems.map(item => item.product),
+      amount: totalPrice,
+    });
+
+    console.log('Order and Purchase saved successfully:', newOrder);
+
+    // Respond with a success message
+    res.status(200).json({ success: true, message: 'Order placed successfully.', order: newOrder });
+  } catch (error) {
+    console.error('Error processing COD payment:', error);
+    res.status(500).json({ success: false, error: 'Failed to place Cash on Delivery order.' });
+  }
 });
