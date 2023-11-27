@@ -13,11 +13,23 @@ const router = express.Router();
 
 const { isAuthenticatedUser, authorizeRoles } = require("../middleware/auth");
 
+
+const isAuthenticatedOrOtpLogin = (req, res, next) => {
+  // Check if the user is authenticated using either method
+  if (req.isAuthenticatedUser || req.isAuthOrOtpLogin) {
+    // If authenticated, proceed to the next middleware or route handler
+    next();
+  } else {
+    // If not authenticated, return an error or redirect to a login page
+    res.status(401).send('Unauthorized');
+  }
+};
+
 router.route("/order/new").post(isAuthenticatedUser, newOrder);
 
 router.route("/order/:id").get(isAuthenticatedUser, getSingleOrder);
 
-router.route("/orders/me").get(isAuthenticatedUser, myOrders);
+router.route("/orders/me").get(isAuthenticatedOrOtpLogin, myOrders);
 
 router
   .route("/admin/orders")
