@@ -55,23 +55,29 @@
   transition: all 0.5s;
   outline: none;
 }
-.cash {
-  border: none;
-  background-color: #000102;
-  color: white;
-  font: 300 0.9vmax "Roboto";
-  width: 100%;
-  padding: 0.8vmax;
-  cursor: pointer;
-  transition: all 0.5s;
-  outline: none;
-}
-
-.cash:hover {
-  background-color: rgb(136, 135, 135);
-}
 .paymentFormBtn:hover {
   background-color: rgb(136, 135, 135);
+}
+
+.cash button {
+  background-color: #4caf50;
+  /* Set your desired background color */
+  color: white;
+  /* Set the text color */
+  padding: 10px 15px;
+  /* Set padding */
+  font-size: 16px;
+  /* Set font size */
+  border: none;
+  /* Remove border */
+  border-radius: 4px;
+  /* Optional: Add border-radius for rounded corners */
+  cursor: pointer;
+  /* Add a pointer cursor on hover */
+}
+.cash button:hover {
+  background-color: #45a049;
+  /* Change the background color on hover */
 }
 
 @media screen and (max-width: 600px) {

@@ -136,6 +136,7 @@ const Payment = ({ history }) => {
       .post("/api/v1/payment/cod", order)
       .then((response) => {
         if (response.data.success) {
+          dispatch(createOrder(order));
           history.push("/success");
         } else {
           // Handle your custom error message display here
@@ -186,10 +187,22 @@ const Payment = ({ history }) => {
             className="paymentFormBtn"
           />
         </form>
-        <button onClick={handleCode} classname="cash">Cod</button>
+        <div>
+          <button onClick={handleCode} className="codButton" style={codButtonStyle}>Cash on Delivery</button>
+        </div>
       </div>
     </Fragment>
   );
+};
+
+const codButtonStyle = {
+  backgroundColor: '#4caf50',
+  color: 'white',
+  padding: '10px 15px',
+  fontSize: '16px',
+  border: 'none',
+  borderRadius: '4px',
+  cursor: 'pointer',
 };
 
 export default Payment;

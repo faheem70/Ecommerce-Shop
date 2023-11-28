@@ -55,11 +55,7 @@ exports.processPaymentCod = catchAsyncErrors(async (req, res, next) => {
     });
 
     // Store the purchase information
-    await Purchase.create({
-      user: userId,
-      product: orderItems.map(item => item.product),
-      amount: totalPrice,
-    });
+
 
     console.log('Order and Purchase saved successfully:', newOrder);
 
