@@ -37,7 +37,7 @@ exports.processPaymentCod = catchAsyncErrors(async (req, res, next) => {
   try {
     const { shippingInfo, orderItems, itemsPrice, taxPrice, shippingPrice, totalPrice } = req.body;
     const userId = req.user ? req.user._id : null;
-
+    console.log(userId);
     // Create a new order with payment information
     const newOrder = await Order.create({
       shippingInfo,

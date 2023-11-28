@@ -41,7 +41,8 @@ exports.isAuthOrOtpLogin = catchAsyncErrors(async (req, res, next) => {
     if (token) {
       // If a token exists, try to authenticate the user
       const decodedData = jwt.verify(token, process.env.JWT_SECRET);
-      const user = await User.findById(decodedData.id);
+      const user = await Otp.findOne({ uid: decodedData.uid });
+      console.log(user);
       req.user = user;
       return next();
     }
