@@ -27,3 +27,26 @@ exports.otpLogin = catchAsyncErrors(async (req, res) => {
         res.status(500).json({ success: false, message: 'Internal Server Error' });
     }
 });
+exports.otpGetData = catchAsyncErrors(async (req, res) => {
+    try {
+        const uid = req.params.uid;
+        const user = await Otp.findOne({ uid });
+        console.log(user);
+        if (!user) {
+            return res.status(404).json({ success: false, message: 'User not found' });
+        }
+
+        res.status(200).json({
+            success: true,
+            userData: {
+                uid: user.uid,
+                phoneNumber: user.phoneNumber,
+                displayName: user.displayName,
+                email: user.email,
+            },
+        });
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ success: false, message: 'Internal Server Error' });
+    }
+});
