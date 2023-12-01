@@ -39,12 +39,16 @@ const UpdateProduct = ({ history, match }) => {
 
   const categories = [
     "Vegetables",
+    'Fruits',
+    'Grocery',
+    'Grill Fast Food',
+    'Cakes',
+    'Dairy',
     "Electronics",
     "Appliances",
     "Toys",
     "Fashion",
     "Furniture",
-    "Grocery",
     "SmartPhones",
   ];
 
