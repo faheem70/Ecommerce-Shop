@@ -56,7 +56,7 @@ exports.processPaymentCod = catchAsyncErrors(async (req, res, next) => {
 
     // Store the purchase information
 
-
+    //store
     console.log('Order and Purchase saved successfully:', newOrder);
 
     // Respond with a success message
