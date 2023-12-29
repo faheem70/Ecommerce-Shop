@@ -6,7 +6,7 @@
   box-sizing: border-box;
 }
 .CartItemCard > img {
-  width: 8vmax;
+  width: 5vmax;
 }
 
 .CartItemCard > div {

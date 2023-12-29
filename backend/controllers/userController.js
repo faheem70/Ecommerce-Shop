@@ -5,7 +5,8 @@ const sendToken = require("../utils/jwtToken");
 const sendEmail = require("../utils/sendEmail");
 const crypto = require("crypto");
 const cloudinary = require("cloudinary");
-//const sendRegistrationEmail = require("../utils/sendEmail");
+const sendRegistrationEmail = require('../utils/sendRegistrationEmail');
+
 // Register a User
 exports.registerUser = catchAsyncErrors(async (req, res, next) => {
   try {
@@ -62,7 +63,7 @@ exports.registerUser = catchAsyncErrors(async (req, res, next) => {
 
     // Use your sendEmail function to send the email
     const recipientEmail = user.email
-    await sendEmail.sendRegistrationEmail(recipientEmail, subject, text, html);
+    await sendRegistrationEmail(recipientEmail, subject, text, html);
 
     sendToken(user, 201, res);
   } catch (error) {
