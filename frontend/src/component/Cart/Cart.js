@@ -7,6 +7,7 @@ import { Typography } from "@material-ui/core";
 import RemoveShoppingCartIcon from "@material-ui/icons/RemoveShoppingCart";
 import { Link } from "react-router-dom";
 import empty from "../../images/empty.gif"
+import Navbar from "../layout/Header/Navbar";
 const Cart = ({ history }) => {
   const dispatch = useDispatch();
   const { cartItems } = useSelector((state) => state.cart);
@@ -37,6 +38,7 @@ const Cart = ({ history }) => {
 
   return (
     <Fragment>
+      <Navbar />
       {cartItems.length === 0 ? (
         <div className="emptyCart">
 

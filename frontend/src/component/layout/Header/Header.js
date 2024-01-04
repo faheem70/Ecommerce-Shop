@@ -1,14 +1,9 @@
-import React from "react";
-import Navbar from "./Navbar"; // Import your custom Navbar component
+import React from 'react'
 
-const Header = ({ user }) => {
+const Header = () => {
   return (
-    <header>
-      <Navbar user={user} />
-      {/* The rest of your header content */}
+    <div>Header</div>
+  )
+}
 
-    </header>
-  );
-};
-
-export default Header;
+export default Header

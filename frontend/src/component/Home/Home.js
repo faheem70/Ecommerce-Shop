@@ -9,6 +9,7 @@ import Loader from "../layout/Loader/Loader";
 import { useAlert } from "react-alert";
 import Banner from "./Banner";
 import { NavLink } from "react-router-dom";
+import Navbar from "../layout/Header/Navbar.js";
 
 const categories = [
   "Electronics",
@@ -60,7 +61,9 @@ const Home = ({ match }) => {
   };
 
   return (
+
     <Fragment>
+      <Navbar />
       {loading ? (
         <Loader />
       ) : (

@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import ProductCard from '../Home/ProductCard';
 import './CategoryProducts.css'; // Import the CSS file
 import Loader from '../layout/Loader/Loader';
+import Navbar from '../layout/Header/Navbar';
 
 function CategoryProducts() {
     const { products, loading, error } = useSelector((state) => state.categoryProducts);
@@ -18,6 +19,7 @@ function CategoryProducts() {
 
     return (
         <Fragment>
+            <Navbar />
             {loading ? (
                 <Loader />
             ) : (

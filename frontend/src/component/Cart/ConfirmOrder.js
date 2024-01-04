@@ -5,6 +5,7 @@ import MetaData from "../layout/MetaData";
 import "./ConfirmOrder.css";
 import { Link } from "react-router-dom";
 import { Typography } from "@material-ui/core";
+import Navbar from "../layout/Header/Navbar";
 
 const ConfirmOrder = ({ history }) => {
   const { shippingInfo, cartItems } = useSelector((state) => state.cart);
@@ -38,6 +39,7 @@ const ConfirmOrder = ({ history }) => {
 
   return (
     <Fragment>
+      <Navbar />
       <MetaData title="Confirm Order" />
       <CheckoutSteps activeStep={1} />
       <div className="confirmOrderPage">

@@ -18,6 +18,7 @@ import CreditCardIcon from "@material-ui/icons/CreditCard";
 import EventIcon from "@material-ui/icons/Event";
 import VpnKeyIcon from "@material-ui/icons/VpnKey";
 import { createOrder, clearErrors } from "../../actions/orderAction";
+import Navbar from "../layout/Header/Navbar";
 
 
 const Payment = ({ history }) => {
@@ -162,6 +163,7 @@ const Payment = ({ history }) => {
 
   return (
     <Fragment>
+      <Navbar />
       <MetaData title="Payment" />
       <CheckoutSteps activeStep={2} />
       <div className="paymentContainer">

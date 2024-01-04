@@ -8,6 +8,8 @@ import { clearErrors, updateProfile, loadUser } from "../../actions/userAction";
 import { useAlert } from "react-alert";
 import { UPDATE_PROFILE_RESET } from "../../constants/userConstants";
 import MetaData from "../layout/MetaData";
+import { Link } from "react-router-dom";
+import logo from "../../images/logo3.png";
 
 const UpdateProfile = ({ history }) => {
   const dispatch = useDispatch();
@@ -77,6 +79,11 @@ const UpdateProfile = ({ history }) => {
           <MetaData title="Update Profile" />
           <div className="updateProfileContainer">
             <div className="updateProfileBox">
+                <Link to="/">
+                  <div className="updateProImage">
+                    <img src={logo} alt="Logo" />
+                  </div>
+                </Link>
               <h2 className="updateProfileHeading">Update Profile</h2>
 
               <form

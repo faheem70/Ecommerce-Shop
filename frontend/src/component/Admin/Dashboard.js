@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { Fragment, useEffect } from "react";
 import Sidebar from "./Sidebar.js";
 import "./dashboard.css";
 import { Typography } from "@material-ui/core";
@@ -9,6 +9,7 @@ import { getAdminProduct } from "../../actions/productAction";
 import { getAllOrders } from "../../actions/orderAction.js";
 import { getAllUsers } from "../../actions/userAction.js";
 import MetaData from "../layout/MetaData";
+import Navbar from "../layout/Header/Navbar.js";
 
 const Dashboard = () => {
   const dispatch = useDispatch();
@@ -64,6 +65,8 @@ const Dashboard = () => {
   };
 
   return (
+    <Fragment>
+      <Navbar />
     <div className="dashboard">
       <MetaData title="Dashboard - Admin Panel" />
       <Sidebar />
@@ -102,6 +105,7 @@ const Dashboard = () => {
         </div>
       </div>
     </div>
+    </Fragment>
   );
 };
 

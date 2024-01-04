@@ -9,6 +9,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { clearErrors, login, register } from "../../actions/userAction";
 import { useAlert } from "react-alert";
 import { loadCartItems } from "../../actions/cartAction";
+import logo from "../../images/logo3.png";
 
 const LoginSignUp = ({ history, location }) => {
   const dispatch = useDispatch();
@@ -35,10 +36,15 @@ const LoginSignUp = ({ history, location }) => {
 
   const [avatar, setAvatar] = useState("/Profile.png");
   const [avatarPreview, setAvatarPreview] = useState("/Profile.png");
+  const [registrationSuccess, setRegistrationSuccess] = useState(false);
+
 
   const loginSubmit = (e) => {
     e.preventDefault();
     dispatch(login(loginEmail, loginPassword));
+    if (isAuthenticated) {
+      history.push('/');
+    }
 
   };
 
@@ -76,7 +82,7 @@ const LoginSignUp = ({ history, location }) => {
       myForm.set("email", email);
       myForm.set("password", password);
       myForm.set("avatar", avatar || null);
-
+      setRegistrationSuccess(true);
       dispatch(register(myForm));
     }
   };
@@ -98,7 +104,7 @@ const LoginSignUp = ({ history, location }) => {
     }
   };
 
-  const redirect = location.search ? location.search.split("=")[1] : "/";
+  //const redirect = location.search ? location.search.split("=")[1] : "/";
 
   useEffect(() => {
     if (error) {
@@ -107,10 +113,13 @@ const LoginSignUp = ({ history, location }) => {
     }
 
     if (isAuthenticated) {
-      dispatch(loadCartItems(true, user._id)); 
-      history.push(redirect);
+      dispatch(loadCartItems(true, user._id));
+      if (registrationSuccess) {
+        alert.success("Registration successful. Email Verification is send to your Registered Email.");
+        switchTabs(null, "login");
+      } 
     }
-  }, [dispatch, error, alert, history, isAuthenticated, redirect, user]);
+  }, [dispatch, error, alert, history, isAuthenticated, user, registrationSuccess]);
 
   const switchTabs = (e, tab) => {
     if (tab === "login") {
@@ -137,7 +146,13 @@ const LoginSignUp = ({ history, location }) => {
         <Fragment>
 
           <div className="LoginSignUpContainer">
+
             <div className="LoginSignUpBox">
+                <Link to="/">
+                  <div className="LoginImage">
+                    <img src={logo} alt="Logo" />
+                  </div>
+                </Link>
               <div>
                 <div className="login_signUp_toggle">
                   <p onClick={(e) => switchTabs(e, "login")}>LOGIN</p>

@@ -10,6 +10,7 @@ import { useAlert } from "react-alert";
 import Typography from "@material-ui/core/Typography";
 import MetaData from "../layout/MetaData";
 import CountdownTimer from "./CountDownTimer";
+import Navbar from "../layout/Header/Navbar";
 
 const categories = [
   "Electronics",
@@ -63,6 +64,7 @@ const Products = ({ match }) => {
 
   return (
     <Fragment>
+      <Navbar />
       {loading ? (
         <Loader />
       ) : (

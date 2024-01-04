@@ -12,6 +12,7 @@ import TransferWithinAStationIcon from "@material-ui/icons/TransferWithinAStatio
 import { Country, State } from "country-state-city";
 import { useAlert } from "react-alert";
 import CheckoutSteps from "../Cart/CheckoutSteps";
+import Navbar from "../layout/Header/Navbar";
 
 const Shipping = ({ history }) => {
   const dispatch = useDispatch();
@@ -40,6 +41,7 @@ const Shipping = ({ history }) => {
 
   return (
     <Fragment>
+      <Navbar />
       <MetaData title="Shipping Details" />
 
       <CheckoutSteps activeStep={0} />

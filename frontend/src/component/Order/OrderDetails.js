@@ -7,6 +7,7 @@ import { Typography } from "@material-ui/core";
 import { getOrderDetails, clearErrors } from "../../actions/orderAction";
 import Loader from "../layout/Loader/Loader";
 import { useAlert } from "react-alert";
+import Navbar from "../layout/Header/Navbar";
 
 const OrderDetails = ({ match }) => {
   const { order, error, loading } = useSelector((state) => state.orderDetails);
@@ -24,6 +25,7 @@ const OrderDetails = ({ match }) => {
   }, [dispatch, alert, error, match.params.id]);
   return (
     <Fragment>
+      <Navbar />
       {loading ? (
         <Loader />
       ) : (

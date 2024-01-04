@@ -22,6 +22,15 @@
   border: 1px solid rgba(0, 0, 0, 0.2);
     border-radius: 10px;
 }
+.LoginImage img {
+  width: 20%;
+  display: block;
+  /* Set the image to a block element to use auto margin */
+  margin-left: auto;
+  /* Auto margin on the left side */
+  margin-right: auto;
+  /* Auto margin on the right side */
+}
 .login_signUp_toggle {
   display: flex;
   height: 3vmax;

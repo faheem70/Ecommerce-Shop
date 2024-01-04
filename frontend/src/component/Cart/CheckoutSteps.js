@@ -3,6 +3,7 @@ import { Typography, Stepper, StepLabel, Step, withStyles } from "@material-ui/c
 import LocalShippingIcon from "@material-ui/icons/LocalShipping";
 import LibraryAddCheckIcon from "@material-ui/icons/LibraryAddCheck";
 import AccountBalanceIcon from "@material-ui/icons/AccountBalance";
+import Navbar from "../layout/Header/Navbar";
 
 const styles = (theme) => ({
   stepStyles: {
@@ -32,6 +33,7 @@ const CheckoutSteps = ({ activeStep, classes }) => {
 
   return (
     <Fragment>
+      <Navbar />
       <Stepper alternativeLabel activeStep={activeStep} className={classes.stepStyles}>
         {steps.map((item, index) => (
           <Step

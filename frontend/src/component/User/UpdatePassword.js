@@ -9,6 +9,9 @@ import MetaData from "../layout/MetaData";
 import LockOpenIcon from "@material-ui/icons/LockOpen";
 import LockIcon from "@material-ui/icons/Lock";
 import VpnKeyIcon from "@material-ui/icons/VpnKey";
+import { Link } from "react-router-dom";
+import logo from "../../images/logo3.png";
+
 
 const UpdatePassword = ({ history }) => {
   const dispatch = useDispatch();
@@ -58,6 +61,11 @@ const UpdatePassword = ({ history }) => {
           <MetaData title="Change Password" />
           <div className="updatePasswordContainer">
             <div className="updatePasswordBox">
+                <Link to="/">
+                  <div className="updateImage">
+                    <img src={logo} alt="Logo" />
+                  </div>
+                </Link>
               <h2 className="updatePasswordHeading">Update Profile</h2>
 
               <form

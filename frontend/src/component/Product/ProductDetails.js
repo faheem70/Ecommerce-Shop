@@ -23,6 +23,7 @@ import { Rating } from "@material-ui/lab";
 import { NEW_REVIEW_RESET } from "../../constants/productConstants";
 import { BsFillHandbagFill } from "react-icons/bs";
 import ReactImageMagnify from 'react-image-magnify';
+import Navbar from "../layout/Header/Navbar.js";
 const ProductDetails = ({ match }) => {
 
   const [showFullDescription, setShowFullDescription] = useState(false);
@@ -123,6 +124,7 @@ const ProductDetails = ({ match }) => {
 
   return (
     <Fragment>
+      <Navbar />
       {loading ? (
         <Loader />
       ) : (

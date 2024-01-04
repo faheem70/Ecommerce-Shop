@@ -6,6 +6,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { clearErrors, forgotPassword } from "../../actions/userAction";
 import { useAlert } from "react-alert";
 import MetaData from "../layout/MetaData";
+import { Link } from "react-router-dom";
+import logo from "../../images/logo3.png";
 
 const ForgotPassword = () => {
   const dispatch = useDispatch();
@@ -46,6 +48,11 @@ const ForgotPassword = () => {
           <MetaData title="Forgot Password" />
           <div className="forgotPasswordContainer">
             <div className="forgotPasswordBox">
+                <Link to="/">
+                  <div className="ForgetImage">
+                    <img src={logo} alt="Logo" />
+                  </div>
+                </Link>
               <h2 className="forgotPasswordHeading">Forgot Password</h2>
 
               <form
