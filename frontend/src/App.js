@@ -47,6 +47,7 @@ import Navbar from "./component/layout/Header/Navbar";
 import CategoryProducts from "./component/Product/CategoryProducts";
 import ConfirmationPage from "./component/User/ConfirmationPage";
 
+
 function App() {
   const { isAuthenticated, user } = useSelector((state) => state.user);
 
@@ -87,6 +88,7 @@ function App() {
 
       <Switch>
         <Route exact path="/" component={Home} />
+
         <Route exact path="/product/:id" component={ProductDetails} />
         <Route exact path="/products" component={Products} />
         <Route path="/products/:keyword" component={Products} />
@@ -192,6 +194,7 @@ function App() {
             location.pathname === "/process/payment" ? null : <NotFound />
           }
         />
+
       </Switch>
 
       <Footer />

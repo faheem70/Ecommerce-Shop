@@ -23,7 +23,9 @@ const user = require("./routes/userRoute");
 const order = require("./routes/orderRoute");
 const payment = require("./routes/paymentRoute");
 const otp = require("./routes/otpRoute");
+const detail = require("./routes/detailRoute")
 
+app.use("/api/v1", detail);
 app.use("/api/v1", otp);
 app.use("/api/v1", product);
 app.use("/api/v1", user);
