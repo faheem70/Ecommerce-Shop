@@ -5,5 +5,5 @@ const { otpLogin, otpGetData } = require("../controllers/otpController");
 
 // Use the middleware function
 router.route("/otplogin").post(otpLogin);
-//router.route('/otplogin/:uid').get(otpGetData);
+router.route('/otplogin/:uid').get(otpGetData);
 module.exports = router;
