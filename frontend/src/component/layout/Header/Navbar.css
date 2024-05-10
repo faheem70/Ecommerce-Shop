@@ -1,0 +1,257 @@
+.custom-navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #ffffff;
+    padding: 10px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 500;
+    flex-wrap: wrap;
+    gap: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.custom-logo {
+    flex: 1;
+}
+
+.custom-logo-img {
+    max-width: 100px;
+    height: auto;
+
+}
+
+.custom-menu-toggle {
+    display: none;
+    font-size: 24px;
+    color: #000;
+
+    cursor: pointer;
+}
+
+.custom-nav-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+
+}
+
+.custom-nav-item {
+    position: relative;
+
+}
+
+.custom-nav-item a {
+    text-decoration: none;
+    color: #000;
+
+    font-weight: bold;
+    padding: 10px;
+    transition: color 0.3s ease;
+
+}
+
+.custom-nav-item a:hover {
+    color: #c4c4c7;
+}
+
+.custom-icons {
+    display: flex;
+    gap: 10px;
+    margin-left: auto;
+    margin-right: 60px;
+
+    align-items: center;
+
+    font-size: 20px;
+}
+
+.custom-search-bar form {
+    display: flex;
+    align-items: center;
+
+}
+
+.custom-search-bar input[type="text"] {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-right: 10px;
+    outline: none;
+}
+
+.custom-search-bar button[type="submit"] {
+    background-color: #000102;
+
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 15px;
+    cursor: pointer;
+    outline: none;
+}
+
+.custom-search-bar button[type="submit"]:hover {
+    background-color: #b6b7b8;
+
+}
+
+.cart-counter {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    background-color: red;
+    color: white;
+    border-radius: 50%;
+    padding: 4px 8px;
+    font-size: 10px;
+}
+
+.active-link {
+    background-color: rgb(201, 201, 196);
+    border-radius: 5px;
+    /* Rounded corners */
+    padding: 5px 10px;
+    /* Padding for better appearance */
+    font-weight: bold;
+    /* Bold text for emphasis */
+    text-decoration: none;
+}
+
+.custom-username {
+    color: rgb(97, 27, 237);
+}
+
+.search-input-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+/* Adjust the input field's padding to create space for the close icon */
+
+
+/* Responsive styles for mobile */
+/* Responsive styles for mobile */
+/* Responsive styles for mobile */
+@media screen and (max-width: 767px) {
+    .custom-menu-toggle {
+        display: block;
+        margin-top: -60px;
+        /* Add top margin for spacing */
+        margin-right: -10px;
+    }
+
+    .custom-icons {
+        display: flex;
+        gap: 10px;
+
+        /* Center the icons */
+        align-items: center;
+        margin-top: -60px;
+        /* Add top margin for spacing */
+    }
+
+    .custom-navbar {
+        padding: 35px 40px;
+        /* Increase padding for better mobile readability */
+        height: 20px;
+    }
+
+    .custom-icons .speedDialIcon {
+        width: 30px;
+        height: 40px;
+        border-radius: 100%;
+
+    }
+
+
+    /* Position the search bar below the menu toggle and cart */
+    .custom-search-bar {
+        position: absolute;
+        top: 50px;
+        /* Adjust the top value as needed */
+        left: 53%;
+
+        transform: translateX(-50%);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+
+    }
+
+
+    .custom-search-bar input[type="text"] {
+        flex: 1;
+        padding: 5px;
+        width: 100%;
+        /* Set the width to 100% to take up full width */
+        max-width: 300px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        margin-right: 10px;
+        outline: none;
+        box-sizing: border-box;
+
+        /* Adjust padding for better mobile appearance */
+    }
+
+    .custom-search-bar button[type="submit"] {
+        padding: 5px 10px;
+        /* Adjust padding for smaller screens */
+    }
+
+    .custom-nav-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        right: 0;
+        background-color: #ffffff;
+        text-align: center;
+        z-index: 1;
+        padding: 10px 0;
+        /* Add padding to separate links */
+    }
+
+
+
+    .mobile-open .custom-nav-links {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+
+    .mobile-open .custom-icons {
+        display: flex;
+        top: 10px;
+        /* Add top margin for spacing */
+    }
+
+    .custom-icons a {
+        color: #000;
+        /* Change icon color to black */
+    }
+
+    .custom-search-icon {
+        margin: auto;
+
+    }
+
+
+    .custom-logo-img {
+        position: relative;
+        top: -20px;
+        /* Adjust the vertical position */
+        left: -40px;
+    }
+}

@@ -1,0 +1,23 @@
+.speedDial {
+  position: fixed;
+  right: 3vmax;
+  top: 3vmax;
+  margin-top: 50px;
+}
+
+.speedDialIcon {
+  width: 56px;
+  height: 56px;
+  border-radius: 100%;
+}
+.speedDialIcon:hover {
+  background-color: #450ef9;
+  /* Updated background color on hover */
+}
+@media screen and (max-width: 600px) {
+  .speedDial {
+    margin-top: 75px;
+    /* Apply margin-top on mobile devices */
+  
+  }
+}

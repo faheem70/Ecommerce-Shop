@@ -1,0 +1,27 @@
+.MuiStepConnector-line {
+  display: none !important;
+  margin-top: 70px;
+}
+
+.MuiStepConnector-root {
+  height: 1px;
+  background-color: rgba(0, 0, 0, 0.349);
+}
+
+.MuiStepConnector-active,
+.MuiStepConnector-completed {
+  background-color: #000102;
+}
+/* Default styles */
+.Stepper-container {
+  box-sizing: border-box;
+  margin-top: 70px;
+}
+
+/* Media query for mobile phones (max-width: 600px) */
+@media (max-width: 600px) {
+  .Stepper-container {
+    margin-top: 50px;
+    /* Adjust the margin for mobile phones */
+  }
+}

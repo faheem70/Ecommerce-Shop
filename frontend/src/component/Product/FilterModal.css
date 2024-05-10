@@ -1,0 +1,59 @@
+/* FilterModal.css */
+.modal-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.modal-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 5px;
+    width: 400px;
+    outline: none;
+    /* Remove default focus outline */
+}
+
+.modal-content h2 {
+    margin-bottom: 20px;
+}
+
+.modal-content .slider {
+    margin-bottom: 20px;
+}
+
+.modal-content .slider .MuiSlider-track {
+    background-color: #2196F3;
+    /* Change slider track color */
+}
+
+.modal-content .slider .MuiSlider-rail {
+    background-color: #E0E0E0;
+    /* Change slider rail color */
+}
+
+.modal-content .slider .MuiSlider-thumb {
+    background-color: #2196F3;
+    /* Change slider thumb color */
+}
+
+.modal-content .slider .MuiSlider-valueLabel {
+    color: #2196F3;
+    /* Change slider value label color */
+}
+
+.modal-content .close-button {
+    background-color: #FF5722;
+    /* Change close button color */
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.modal-content .close-button:hover {
+    background-color: #E64A19;
+    /* Change close button hover color */
+}

@@ -1,0 +1,126 @@
+/* Base styles for desktop */
+.banner_img {
+    width: 100%;
+    /* Set your desired width */
+    height: 70%;
+    /* Set your desired height */
+}
+
+.carousel {
+    margin-top: 50px;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Desktop navigation menu */
+.desktop-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #333;
+    padding: 10px 0;
+    color: #fff;
+}
+
+.desktop-nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.desktop-nav li {
+    margin: 0;
+    padding: 0;
+}
+
+.desktop-nav a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+}
+
+/* Mobile navigation menu */
+.mobile-nav-toggle {
+    display: none;
+    font-size: 24px;
+    color: #fff;
+    cursor: pointer;
+}
+
+.mobile-nav {
+    display: none;
+    background-color: #333;
+    color: #fff;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    right: 0;
+    text-align: center;
+    z-index: 1;
+    padding: 10px 0;
+}
+
+.mobile-nav.open {
+    display: block;
+}
+
+.mobile-nav a {
+    text-decoration: none;
+    color: #fff;
+    display: block;
+    padding: 10px;
+}
+
+
+
+
+/* Responsive styles for tablets and smaller screens */
+@media screen and (max-width: 992px) {
+    .banner_img {
+        width: 100%;
+        /* Set the same width as on desktop */
+        height: 200px;
+        /* Set the same height as on desktop */
+    }
+
+    .carousel {
+        margin-top: 60px;
+    }
+
+    .desktop-nav ul {
+        display: none;
+    }
+
+    .mobile-nav-toggle {
+        display: block;
+    }
+}
+
+/* Responsive styles for mobile phones */
+@media screen and (max-width: 600px) {
+    .desktop-nav {
+        display: none;
+    }
+
+    .mobile-nav.open {
+        display: block;
+    }
+
+    .banner_img {
+        width: 100%;
+        /* Set the same width as on desktop */
+        height: 200px;
+        /* Set the same height as on desktop */
+    }
+
+    /* Set the specific width and height for the carousel image on mobile */
+    .carousel {
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+    }
+}
