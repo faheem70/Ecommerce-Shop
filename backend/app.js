@@ -24,6 +24,7 @@ const order = require("./routes/orderRoute");
 const payment = require("./routes/paymentRoute");
 const otp = require("./routes/otpRoute");
 const detail = require("./routes/detailRoute")
+const category = require("./routes/categoryRoute");
 
 app.use("/api/v1", detail);
 app.use("/api/v1", otp);
@@ -31,6 +32,7 @@ app.use("/api/v1", product);
 app.use("/api/v1", user);
 app.use("/api/v1", order);
 app.use("/api/v1", payment);
+app.use("/api/v1", category);
 
 app.use(express.static(path.join(__dirname, "../frontend/build")));
 
